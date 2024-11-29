@@ -13,5 +13,6 @@ export const useThemeStore = defineStore('theme', {
       this.language = val
       setLocale(val)
     }
-  }
+  },
+  persist: true
 })

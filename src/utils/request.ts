@@ -33,6 +33,13 @@ const http = {
     config?: AxiosRequestConfig
   ): Promise<ResultData<T>> {
     return service.get(url, { params, ...config })
+  },
+  post<T = any, P = any>(
+    url: string,
+    data?: P,
+    config?: AxiosRequestConfig
+  ): Promise<ResultData<T>> {
+    return service.post(url, data, config)
   }
 }
 

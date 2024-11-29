@@ -8,7 +8,7 @@ export default defineConfig({
     }
   },
   presets: [
-    presetUno(),
+    presetUno(), // 默认预设
     presetAttributify()
     // presetRemToPx({ baseFontSize: 4 })
   ],
