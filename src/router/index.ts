@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from './routes'
 import { useUserStore } from '@/stores/user'
+import { useMenuStore } from '@/stores/menu'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,16 @@ router.beforeEach((to, from, next) => {
   } else {
     next('/login')
   }
+})
+
+router.afterEach((to) => {
+  if (to.meta.title) {
+    document.title = to.meta.title + '-' + import.meta.env.VITE_TITLE
+  }
+
+  const menuStore = useMenuStore()
+
+  menuStore.setActiveMenuKey(to.path)
 })
 
 export default router
